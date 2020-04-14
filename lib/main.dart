@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider/single_child_widget.dart';
+import 'package:provider_demo/page/data_list_page.dart';
+import 'package:provider_demo/page/providers/data_list_provider.dart';
 import 'package:provider_demo/provider/providers.dart';
 import 'package:provider_demo/provider/theme_provider.dart';
 
@@ -35,7 +38,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -61,6 +63,23 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
+      body: ListView(
+        children: <Widget>[
+          ListTile(
+            title: Text('加载更多provider'),
+            onTap: () {
+              _goPage(DataListPage());
+            },
+          )
+        ],
+      ),
+    );
+  }
+
+  Future _goPage(Widget child) {
+    return Navigator.push(
+      context,
+      new MaterialPageRoute(builder: (_) => child),
     );
   }
 }
