@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:provider_demo/page/data_list_page.dart';
 import 'package:provider_demo/page/providers/data_list_provider.dart';
+import 'package:provider_demo/page/user_data_page.dart';
 import 'package:provider_demo/provider/providers.dart';
 import 'package:provider_demo/provider/theme_provider.dart';
 
@@ -69,6 +70,12 @@ class _MyHomePageState extends State<MyHomePage> {
             title: Text('加载更多provider'),
             onTap: () {
               _goPage(DataListPage());
+            },
+          ),
+          ListTile(
+            title: Text('Selector'),
+            onTap: () {
+              _goPage(UserDataPage());
             },
           )
         ],
